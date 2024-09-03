@@ -23,7 +23,7 @@ export const SavePosts = () => {
             const docSnap = await getDoc(docRef);
             const postList = docSnap.data().savePosts
             const postsArray = []
-            console.log(postList);
+
     
 
             for (const postId of postList) {
@@ -35,7 +35,7 @@ export const SavePosts = () => {
                     const postData = docSnapshot.data();
                     postsArray.push({...postData,id:postId});
                 } else {
-                    console.log(`El documento con ID ${postId} no existe.`);
+                    console.error(`El documento con ID ${postId} no existe.`);
                 }
                 } catch (error) {
                 console.error('Error al obtener el documento:', error);
